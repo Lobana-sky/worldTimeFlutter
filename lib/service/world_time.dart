@@ -8,8 +8,9 @@ class WorldTime {
   String flag;
   String url;
   String location;
+  bool isDayLight = false;
 
-  WorldTime(this.location, this.flag, this.url);
+  WorldTime(this.url, this.location, this.flag);
 
   Future<void> getTime() async {
 
@@ -24,6 +25,7 @@ class WorldTime {
       DateTime now = DateTime.parse(dateTime);
       now = now.add(Duration(hours: int.parse(offset)));
 
+      isDayLight = now.hour > 6 && now.hour < 20 ? true : false ;
       // set now to time
       time = DateFormat.jm().format(now);
     }

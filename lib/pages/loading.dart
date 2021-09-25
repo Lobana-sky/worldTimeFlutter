@@ -15,12 +15,13 @@ class _LoadingState extends State<Loading> {
   String time = 'Loading';
 
   void setupWorldTime() async {
-    WorldTime instance = WorldTime('berlin', 'germany.png', 'Europe/London');
+    WorldTime instance = WorldTime('Europe/London', 'London', 'uk.png');
     await instance.getTime();
     Navigator.pushReplacementNamed(context, '/home', arguments: { // what we want to send to next page
       'location': instance.location,
       'flag': instance.flag,
-      'time': instance.time
+      'time': instance.time,
+      'isDayLight': instance.isDayLight
     });
   }
 
@@ -35,7 +36,7 @@ class _LoadingState extends State<Loading> {
     return Scaffold(
       backgroundColor: Colors.blue[900],
       body: Center(
-        child: SpinKitRotatingCircle(
+        child: SpinKitFoldingCube(
           color: Colors.white,
           size: 50.0,
         ),
