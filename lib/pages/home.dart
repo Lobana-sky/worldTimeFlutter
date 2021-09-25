@@ -54,11 +54,11 @@ class _HomeState extends State<Home> {
                 SizedBox(height: 30.0),
                 Image.asset(
                   'assets/${data['flag']}',
-                  width: 200,
-                  height: 100,
+                  width: 100,
+                  height: 50,
                   fit:BoxFit.fill  
                   ),
-                SizedBox(height: 50.0),
+                SizedBox(height: 30.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
